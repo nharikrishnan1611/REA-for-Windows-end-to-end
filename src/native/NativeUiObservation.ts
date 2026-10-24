@@ -142,6 +142,13 @@ const observeWithHelper = async (
   ).safeParse(parameters);
   if (!parsed.success)
     return err(new AnalysisInputError(operation, { cause: parsed.error }));
+  if (target.kind === "executable" && target.format === "pe") {
+    const { observeWindowsNativeUi } =
+      await import("../windows/WindowsUiObservation.js");
+    return observeWindowsNativeUi(target, operation, parameters, {
+      signal: options.interruption.signal,
+    });
+  }
   if (target.kind !== "executable" || !isMachOFormat(target.format))
     return err(
       new AnalysisCapabilityUnavailableError(

@@ -678,3 +678,36 @@ describe("native UI target and cancellation failures", () => {
     expect(replaced.ok).toBe(false);
   });
 });
+
+describe("Windows native UI observation target admission", () => {
+  it("admits Windows PE targets without requiring Mach-O format", async () => {
+    const peTarget: BinaryTarget = {
+      path: "C:\\fixtures\\test.exe",
+      sha256: "b".repeat(64),
+      kind: "executable",
+      format: "pe",
+      architecture: "x86_64",
+      availableArchitectures: ["x86_64"],
+      executableRole: "application",
+      managed: false,
+    };
+    const result = await observeNativeUi(
+      peTarget,
+      "observe_native_ui",
+      {
+        pid: 123,
+        window_id: 456,
+        screenshot: false,
+        accessibility: true,
+      },
+      {
+        environment: {},
+      },
+    );
+    if (!result.ok) {
+      expect(result.error.message).not.toContain("requires an active Mach-O");
+    } else {
+      expect(result.value.target_sha256).toBe(peTarget.sha256);
+    }
+  });
+});

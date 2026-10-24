@@ -219,6 +219,8 @@ export const CAPABILITIES: readonly CapabilityDescriptor[] = Object.freeze(
 /** Capabilities advertised for the experimental Windows x64 P0 boundary. */
 export const windowsP0Capabilities = (
   readiness: WindowsNativeReadiness = inspectWindowsNativeReadiness("win32"),
+  allowMutation: boolean = typeof process !== "undefined" &&
+    process.env.REA_ALLOW_WINDOWS_GHIDRA_MUTATION === "1",
 ): readonly CapabilityDescriptor[] => {
   return Object.freeze(
     CAPABILITIES.map((capability): CapabilityDescriptor => {
@@ -226,7 +228,7 @@ export const windowsP0Capabilities = (
         ...capability.limitations,
         ...windowsP0Limitations,
       ]);
-      if (capability.effects.mutatesArtifact)
+      if (capability.effects.mutatesArtifact && !allowMutation)
         return Object.freeze({
           ...capability,
           available: false,
@@ -234,14 +236,20 @@ export const windowsP0Capabilities = (
           availabilityCode: "unsupported_host",
           limitations,
         });
+      const effectiveLimitations = capability.effects.mutatesArtifact
+        ? Object.freeze([
+            ...limitations,
+            "Names and comments edit ephemeral session database metadata; original executable bytes are NEVER patched.",
+          ])
+        : limitations;
       return readiness.available
-        ? Object.freeze({ ...capability, limitations })
+        ? Object.freeze({ ...capability, limitations: effectiveLimitations })
         : Object.freeze({
             ...capability,
             available: false,
             reason: readiness.reason,
             availabilityCode: readiness.code,
-            limitations,
+            limitations: effectiveLimitations,
           });
     }),
   );

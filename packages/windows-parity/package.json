@@ -1,0 +1,39 @@
+{
+  "name": "@rea/windows-parity",
+  "version": "1.0.0",
+  "description": "Windows-native UI Automation observation, Ghidra capability extensions, and annotation persistence for REA.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./ui": {
+      "import": "./dist/ui/index.js",
+      "types": "./dist/ui/index.d.ts"
+    },
+    "./persistence": {
+      "import": "./dist/persistence/index.js",
+      "types": "./dist/persistence/index.d.ts"
+    },
+    "./ghidra": {
+      "import": "./dist/ghidra/index.js",
+      "types": "./dist/ghidra/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run"
+  },
+  "keywords": [
+    "rea",
+    "reverse-engineering",
+    "windows",
+    "ui-automation",
+    "ghidra",
+    "annotation-persistence"
+  ],
+  "license": "MIT"
+}
