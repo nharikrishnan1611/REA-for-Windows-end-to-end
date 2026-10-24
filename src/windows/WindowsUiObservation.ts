@@ -14,8 +14,8 @@ import { ok, err, type Result } from "../domain/result.js";
 import {
   observeWindowsUi,
   type WindowsUiInvoker,
-} from "../../packages/windows-parity/src/ui/WindowsUiObserver.js";
-import type { WindowsUiSnapshot } from "../../packages/windows-parity/src/ui/types.js";
+} from "./ui/WindowsUiObserver.js";
+import type { WindowsUiSnapshot } from "./ui/types.js";
 
 const passiveInputSchema = nativeUiObservationInputSchema.transform(
   (input) => ({ ...input, steps: [] }),

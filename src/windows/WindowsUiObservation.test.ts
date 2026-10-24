@@ -4,7 +4,7 @@ import { observeWindowsNativeUi } from "./WindowsUiObservation.js";
 import {
   createPngScreenshotRecord,
   MINIMAL_TEST_PNG,
-} from "../../packages/windows-parity/src/ui/WindowsScreenshot.js";
+} from "./ui/WindowsScreenshot.js";
 
 const peTarget: BinaryTarget = {
   path: "C:\\fixtures\\sample.exe",

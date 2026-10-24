@@ -5,4 +5,4 @@ export {
   type FunctionAnnotation,
   type SymbolAnnotation,
   type TargetAnnotations,
-} from "../../packages/windows-parity/src/persistence/AnnotationStore.js";
+} from "./persistence/AnnotationStore.js";
