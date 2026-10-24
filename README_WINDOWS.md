@@ -8,6 +8,8 @@ Reverse engineering assistant (REA) extension providing full Windows-native alte
 
 ## ⚡ Ruthless Architecture Overview
 
+![REA Windows End-to-End Architecture](docs/assets/rea_windows_architecture.jpg)
+
 REA on Windows originally provided an experimental, strictly read-only P0 boundary for native PE binaries with no GUI observation, zero database mutation authority, and no durable annotation persistence.
 
 This repository delivers **end-to-end Windows feature parity** across three core pillars:
@@ -19,9 +21,19 @@ This repository delivers **end-to-end Windows feature parity** across three core
    - Integrated directly into REA's source architecture (`src/windows/`, `src/ghidra/`, and `src/native/`).
    - Dispatches `observe_native_ui` to Windows UI Automation for PE executables without requiring macOS/Mach-O.
    - Enables authorized Ghidra function renaming and comments under fail-closed security invariants.
-3. **Strict Target Immutability**:
+3. **Strict Target Immutability & Security**:
    - Guarantees static target binary bytes are never patched or modified.
    - Outputs all generated annotations, screenshots, and logs to isolated external directories.
+
+---
+
+## 🛡️ Zero-Crash & Non-Invasive Security Guarantee
+
+![REA Windows Zero-Crash Security Guarantee](docs/assets/rea_security_benefits.jpg)
+
+- **Out-of-Process Observation**: Uses pure Microsoft UI Automation and OS window handles (`HWND`). Zero code injection, zero API hooking, zero memory tampering.
+- **Bit-for-Bit Byte Invariance**: Verified by tests (`TargetPreservation.test.ts`), target binary SHA-256 remains 100% identical.
+- **Production-Binary Safe**: Never disrupts GUI event loops, triggers anti-cheat watchdogs, or causes app crashes.
 
 ---
 

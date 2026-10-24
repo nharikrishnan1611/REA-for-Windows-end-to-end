@@ -28,6 +28,8 @@ Historically, REA suffered a major platform divide: **deep interactive workflows
 
 ## 🏗️ Architecture & Core Pillars
 
+![REA Windows End-to-End Architecture](docs/assets/rea_windows_architecture.jpg)
+
 ```
 ┌─────────────────────────────────────────────────────────────────────────────────────────┐
 │                                REA CLI / MCP Server                                     │
@@ -74,6 +76,19 @@ Historically, REA suffered a major platform divide: **deep interactive workflows
 
 ---
 
+## 🛡️ Zero-Crash & Non-Invasive Security Guarantee
+
+![REA Windows Zero-Crash Security Guarantee](docs/assets/rea_security_benefits.jpg)
+
+### Why REA Windows is 100% Non-Invasive & Secure:
+
+- **Zero Process Crashes**: Unlike intrusive dynamic instrumentation tools (e.g. Frida, MinHook, Detours) that inject DLLs, hijack threads, or rewrite prologue instructions in memory, REA interacts exclusively out-of-process via standard OS accessibility channels and window handles (`HWND`).
+- **Cryptographic Byte Immutability**: The target binary on disk is treated as immutable read-only evidence. Unit and integration tests (`TargetPreservation.test.ts`) mathematically verify that pre- and post-analysis SHA-256 digests are bit-for-bit identical.
+- **Zero GUI Deadlocks & Glitches**: All UI Automation queries are bounded with timeouts, preventing message pump starvation, UI thread hangs, or integrity watchdog alarms.
+- **Isolated Ephemeral Mutations**: Ghidra headless mutations affect only temporary in-memory project databases. Binary headers, sections, and code on disk remain completely unmodified.
+
+---
+
 ## 📦 Packaging & Source Layout
 
 The project is structured into a clean, standalone package and deep REA core integrations:
@@ -113,7 +128,10 @@ rea-for-windows-end-to-end/
 │       ├── GhidraProviderCapabilities.ts# Configurable mutation policy
 │       └── GhidraProviderCapabilities.test.ts
 ├── docs/
-│   ├── assets/rea_windows_hero.jpg      # System architecture visual
+│   ├── assets/
+│   │   ├── rea_windows_hero.jpg         # Hero keynote visual
+│   │   ├── rea_windows_architecture.jpg # 4-stage pipeline architecture diagram
+│   │   └── rea_security_benefits.jpg    # Zero-crash security guarantee infographic
 │   ├── windows-feature-matrix.md        # Comprehensive parity matrix
 │   └── windows-ghidra-p0.md             # Baseline P0 specifications
 └── README_WINDOWS.md                    # Extended technical guide
