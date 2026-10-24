@@ -1,7 +1,7 @@
 {
   "name": "@rea/windows-parity",
   "version": "1.0.0",
-  "description": "Windows-native UI Automation observation, Ghidra capability extensions, and annotation persistence for REA.",
+  "description": "UNVEIL: Windows-native UI Automation observation, Ghidra capability extensions, and annotation persistence.",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",

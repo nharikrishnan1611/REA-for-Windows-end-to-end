@@ -1,14 +1,16 @@
-# REA for Windows End-to-End
+# 🌌 UNVEIL: AI-Assisted Windows Reverse Engineering
 
-![REA for Windows End-to-End](docs/assets/rea_windows_hero.jpg)
+> **“See the software. Understand the system.”**
 
-Reverse engineering assistant (REA) extension providing full Windows-native alternatives for Hopper-dependent workflows. Built and verified natively on Windows 10/11 x64.
+![UNVEIL Brand Reveal](docs/assets/unveil_brand_hero.jpg)
+
+UNVEIL provides full Windows-native alternatives for Hopper-dependent workflows, bridging desktop UI automation and headless binary decompilation. Built and verified natively on Windows 10/11 x64.
 
 ---
 
 ## ⚡ Ruthless Architecture Overview
 
-![REA Windows End-to-End Architecture](docs/assets/rea_windows_architecture.jpg)
+![UNVEIL End-to-End Architecture](docs/assets/rea_windows_architecture.jpg)
 
 REA on Windows originally provided an experimental, strictly read-only P0 boundary for native PE binaries with no GUI observation, zero database mutation authority, and no durable annotation persistence.
 

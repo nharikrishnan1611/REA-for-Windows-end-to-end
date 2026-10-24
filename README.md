@@ -1,8 +1,10 @@
-# 🪟 REA Windows: Beyond Hopper
+# 🌌 UNVEIL
 
-### End-to-End Windows Native Reverse Engineering, GUI Observation, and Durable Annotations
+### AI-Assisted Windows Reverse-Engineering Platform
 
-![REA for Windows End-to-End](docs/assets/rea_windows_hero.jpg)
+> **“See the software. Understand the system.”**
+
+![UNVEIL Brand Reveal](docs/assets/unveil_brand_hero.jpg)
 
 [![Windows Tests](https://img.shields.io/badge/tests-289%20passed-brightgreen?style=flat-square)](packages/windows-parity/tests)
 [![Typecheck & Lint](https://img.shields.io/badge/turborepo-clean-success?style=flat-square)](turbo.json)
@@ -12,13 +14,27 @@
 
 ---
 
+## 🎬 Product Vision: The UNVEIL Cinematic Experience
+
+![UNVEIL Unified Investigation Workspace](docs/assets/unveil_workspace.jpg)
+
+| Scene  | Phase                                   | Visual & Technical Execution                                                                                                                                                                              |
+| :----: | :-------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **01** | **The Unknown** _(0–3s)_                | Open on a dark desktop environment where opaque Windows applications obscure their internal logic. Pulsing digital scans begin tracing the window boundaries. _"What's hidden inside your software?"_     |
+| **02** | **Reveal the Interface** _(3–6s)_       | Microsoft UI Automation illuminates the control tree with thin electric-blue outlines, capturing hierarchies, buttons, text fields, and accessibility states out-of-process. _"Inspect the application."_ |
+| **03** | **Explore the Binary** _(6–10s)_        | Seamless transition into deep PE binary disassembly and headless Ghidra pseudo-C decompilation, connecting functions to control flow graphs. _"Analyze the code."_                                        |
+| **04** | **AI Connects the Evidence** _(10–13s)_ | The AI analytical assistant unifies UI observation nodes with binary functions, creating structured, verifiable evidence cards without hallucinating or mutating code. _"Connect the evidence."_          |
+| **05** | **The Brand Reveal** _(13–15s)_         | A glowing electric-blue geometric emblem forms on deep graphite black: **UNVEIL — See the software. Understand the system.**                                                                              |
+
+---
+
 ## ⚡ Executive Summary
 
-[REA (Reverse Engineering Assistant)](https://github.com/morluto/rea) is a unified CLI and Model Context Protocol (MCP) server that empowers AI coding agents and human analysts to inspect, decompile, and reverse engineer compiled applications.
+**UNVEIL** is an AI-assisted Windows reverse-engineering platform built on top of [REA](https://github.com/morluto/rea). It unifies CLI and Model Context Protocol (MCP) workflows to empower AI coding agents and human analysts to inspect, decompile, and reverse engineer compiled Windows applications.
 
 Historically, REA suffered a major platform divide: **deep interactive workflows were locked behind macOS and Hopper Disassembler**. On Windows, analysts were constrained to a strictly read-only P0 Ghidra boundary with **zero GUI observation**, **zero database mutation authority**, and **ephemeral sessions** that lost all analysis annotations on process exit.
 
-**REA Windows: Beyond Hopper** breaks this barrier by delivering verified, Windows-native alternatives for Hopper-dependent workflows:
+**UNVEIL** breaks this barrier by delivering verified, Windows-native alternatives:
 
 1. **Microsoft UI Automation & Screenshot Observation**: Native accessibility tree traversal and GDI screenshot capture for Windows desktop applications without DLL injection, API hooking, or memory patching.
 2. **Durable Target-Bound Annotation Vault**: A schema-versioned metadata store keyed strictly by the target binary's cryptographic SHA-256 hash, persisting function renames, comments, and symbols across ephemeral Ghidra sessions and process restarts.
@@ -28,7 +44,7 @@ Historically, REA suffered a major platform divide: **deep interactive workflows
 
 ## 🏗️ Architecture & Core Pillars
 
-![REA Windows End-to-End Architecture](docs/assets/rea_windows_architecture.jpg)
+![UNVEIL End-to-End Architecture](docs/assets/rea_windows_architecture.jpg)
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────────────────┐
